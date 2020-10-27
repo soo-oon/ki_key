@@ -1,23 +1,26 @@
-import 'package:cap/models/models.dart';
-import 'package:cap/views/home_screen.dart';
+import 'package:cap/shared/sharedColors.dart';
 import 'package:flutter/material.dart';
-import 'package:provider/provider.dart';
 
-class IntroScreen extends StatefulWidget {
+class SampleScreen extends StatefulWidget {
+  final String appbarTitle;
   final List<String> images;
 
-  const IntroScreen({Key key, this.images}) : super(key: key);
-
+  const SampleScreen({Key key, this.appbarTitle, this.images})
+      : super(key: key);
   @override
-  _IntroScreenState createState() => _IntroScreenState();
+  _SampleScreenState createState() => _SampleScreenState();
 }
 
-class _IntroScreenState extends State<IntroScreen> {
+class _SampleScreenState extends State<SampleScreen> {
   int index = 0;
   @override
   Widget build(BuildContext context) {
     final Size size = MediaQuery.of(context).size;
     return Scaffold(
+      appBar: AppBar(
+        title: Text(widget.appbarTitle),
+        backgroundColor: mainColor,
+      ),
       body: GestureDetector(
         onDoubleTap: () {
           setState(() {

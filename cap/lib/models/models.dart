@@ -2,3 +2,4 @@
 export 'Image.dart';
 export 'seller.dart';
 export 'store.dart';
+export 'point.dart';
