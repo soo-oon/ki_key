@@ -2,6 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ki_key/locator.dart';
 import 'package:ki_key/router.gr.dart';
 import 'package:ki_key/ui/views/home/home_view.dart';
+import 'package:ki_key/ui/views/start/start_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 void main() {
@@ -22,7 +23,7 @@ class MyApp extends StatelessWidget {
         primarySwatch: Colors.blue,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
-      home: HomeView(),
+      home: StartupView(),
     );
   }
 }

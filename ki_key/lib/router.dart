@@ -5,6 +5,7 @@ import 'package:ki_key/ui/views/test/test_view.dart';
 
 import 'ui/views/home/home_view.dart';
 import 'ui/views/start/start_view.dart';
+import 'ui/views/store/store_view.dart';
 
 @MaterialAutoRouter(
   routes: <AutoRoute>[
@@ -13,6 +14,7 @@ import 'ui/views/start/start_view.dart';
     MaterialRoute(page: TestView),
     MaterialRoute(page: LoginView),
     MaterialRoute(page: OptionView),
+    MaterialRoute(page: StoreView),
   ],
 )
 class $Router {}

@@ -13,6 +13,7 @@ import 'ui/views/home/home_view.dart';
 import 'ui/views/login/login_view.dart';
 import 'ui/views/option/option_view.dart';
 import 'ui/views/start/start_view.dart';
+import 'ui/views/store/store_view.dart';
 import 'ui/views/test/test_view.dart';
 
 class Routes {
@@ -21,12 +22,14 @@ class Routes {
   static const String testView = '/test-view';
   static const String loginView = '/login-view';
   static const String optionView = '/option-view';
+  static const String storeView = '/store-view';
   static const all = <String>{
     startupView,
     homeView,
     testView,
     loginView,
     optionView,
+    storeView,
   };
 }
 
@@ -39,6 +42,7 @@ class Router extends RouterBase {
     RouteDef(Routes.testView, page: TestView),
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.optionView, page: OptionView),
+    RouteDef(Routes.storeView, page: StoreView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -70,6 +74,12 @@ class Router extends RouterBase {
     OptionView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => OptionView(),
+        settings: data,
+      );
+    },
+    StoreView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => StoreView(),
         settings: data,
       );
     },

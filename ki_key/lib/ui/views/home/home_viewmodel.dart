@@ -16,7 +16,12 @@ class HomeViewModel extends BaseViewModel {
     await _navigationService.navigateTo(Routes.optionView);
   }
 
+  Future navigateToStore() async {
+    await _navigationService.navigateTo(Routes.storeView);
+  }
+
   void init() {
+    _searchText.text = '';
     _point = _pointService.point;
   }
 }
