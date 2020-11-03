@@ -22,13 +22,15 @@ class BoxWidget extends StatefulWidget {
 class _BoxWidgetState extends State<BoxWidget> {
   @override
   Widget build(BuildContext context) {
-    return Container(
-      width: widget.width,
-      height: widget.height,
-      decoration: BoxDecoration(
-          color: widget.color,
-          borderRadius: BorderRadius.circular(widget.radius)),
-      child: widget.child,
-    );
+    return IndexedStack(children: [
+      Container(
+        width: widget.width,
+        height: widget.height,
+        decoration: BoxDecoration(
+            color: widget.color,
+            borderRadius: BorderRadius.circular(widget.radius)),
+        child: widget.child,
+      ),
+    ]);
   }
 }
