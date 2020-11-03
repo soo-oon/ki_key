@@ -5,6 +5,7 @@ import 'package:ki_key/ui/views/start/start_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 
 import 'router.gr.dart';
+import 'shared/sharedColors.dart';
 
 void main() {
   setupLocator();
@@ -21,7 +22,7 @@ class MyApp extends StatelessWidget {
       onGenerateRoute: Router().onGenerateRoute,
       navigatorKey: locator<NavigationService>().navigatorKey,
       theme: ThemeData(
-        primarySwatch: Colors.blue,
+        primaryColor: mainColor,
         visualDensity: VisualDensity.adaptivePlatformDensity,
       ),
       home: StartupView(),

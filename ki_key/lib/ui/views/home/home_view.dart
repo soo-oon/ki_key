@@ -5,6 +5,8 @@ import 'package:ki_key/shared/widgets/input_widget.dart';
 import 'package:ki_key/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
 
+import '../../../helper.dart';
+
 class HomeView extends StatefulWidget {
   @override
   _HomeViewState createState() => _HomeViewState();
@@ -44,6 +46,7 @@ class _HomeViewState extends State<HomeView> {
                                     onTap: () => model.navigateToOption(),
                                     child: ListTile(
                                       title: Text(index.toString()),
+                                      onTap: model.navigateToStore,
                                     ),
                                   );
                                 },

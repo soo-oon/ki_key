@@ -6,3 +6,4 @@ const Color secColor = Color.fromRGBO(255, 253, 236, 1);
 
 const Color white = Colors.white;
 const Color black = Colors.black;
+const Color red = Colors.red;

@@ -18,12 +18,17 @@ Widget spacedDivider = Column(
   ],
 );
 
-Widget horizontalBar(double width, Color color) => Container(
+Widget horizontalBar(double width, double height, Color color) => Container(
       width: width * 0.9,
-      height: 1,
+      height: height,
       color: color,
     );
 
+Widget verticalBar(double width, double height, Color color) => Container(
+      width: width,
+      height: height,
+      color: color,
+    );
 Widget verticalSpace(double height) => SizedBox(height: height);
 
 double screenWidth(BuildContext context) => MediaQuery.of(context).size.width;
