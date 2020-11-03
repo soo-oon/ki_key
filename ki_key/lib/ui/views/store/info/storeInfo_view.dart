@@ -139,9 +139,8 @@ class _StoreInfoViewState extends State<StoreInfoView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.all(5.0),
+                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
                   child: Container(
-                    height: 70,
                     child: Row(
                       children: [
                         Icon(Icons.account_box),
@@ -152,22 +151,22 @@ class _StoreInfoViewState extends State<StoreInfoView> {
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 25.0),
+                      vertical: 5.0, horizontal: 25.0),
                   child: Text("대표자명"),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 25.0),
+                      vertical: 5.0, horizontal: 25.0),
                   child: Text("상호명"),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 25.0),
+                      vertical: 5.0, horizontal: 25.0),
                   child: Text("사업장 주소"),
                 ),
                 Padding(
                   padding: const EdgeInsets.symmetric(
-                      vertical: 8.0, horizontal: 25.0),
+                      vertical: 5.0, horizontal: 25.0),
                   child: Text("사업자 등록번호"),
                 ),
               ],
