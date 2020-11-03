@@ -97,7 +97,9 @@ class OptionView extends StatelessWidget {
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.start,
                       children: [
-                        TextButtonWidget(text: "QR"),
+                        TextButtonWidget(
+                          text: "QR",
+                        ),
                         verticalSpaceTiny,
                         TextButtonWidget(text: "광고 스크랩 리스트"),
                         verticalSpaceTiny,

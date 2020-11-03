@@ -1,9 +1,10 @@
-import 'package:flutter/material.dart';
+import 'package:flutter/material.dart' hide Router;
 import 'package:ki_key/locator.dart';
-import 'package:ki_key/router.gr.dart';
 import 'package:ki_key/ui/views/home/home_view.dart';
 import 'package:ki_key/ui/views/start/start_view.dart';
 import 'package:stacked_services/stacked_services.dart';
+
+import 'router.gr.dart';
 
 void main() {
   setupLocator();
