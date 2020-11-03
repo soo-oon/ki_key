@@ -24,7 +24,7 @@ dependencies:
   flutter:
     sdk: flutter
   stacked: ^1.2.2
-  auto_route: ^0.6.7
+  auto_route: 0.6.7
   stacked_services:
   get_it:
   injectable:
