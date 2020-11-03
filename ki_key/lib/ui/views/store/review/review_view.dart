@@ -37,7 +37,7 @@ class _ReviewViewState extends State<ReviewView> {
               Padding(
                 padding: const EdgeInsets.symmetric(horizontal: 8.0),
                 child: Icon(
-                  Icons.circle,
+                  Icons.add_circle,
                   color: red,
                 ),
               ),
