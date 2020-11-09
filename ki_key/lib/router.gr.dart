@@ -10,8 +10,10 @@ import 'package:auto_route/auto_route.dart';
 import 'package:flutter/material.dart';
 
 import 'ui/views/home/home_view.dart';
+import 'ui/views/join/join_view.dart';
 import 'ui/views/login/login_view.dart';
 import 'ui/views/option/option_view.dart';
+import 'ui/views/order/order_view.dart';
 import 'ui/views/start/start_view.dart';
 import 'ui/views/store/store_view.dart';
 import 'ui/views/test/test_view.dart';
@@ -23,6 +25,8 @@ class Routes {
   static const String loginView = '/login-view';
   static const String optionView = '/option-view';
   static const String storeView = '/store-view';
+  static const String joinView = '/join-view';
+  static const String orderView = '/order-view';
   static const all = <String>{
     startupView,
     homeView,
@@ -30,6 +34,8 @@ class Routes {
     loginView,
     optionView,
     storeView,
+    joinView,
+    orderView,
   };
 }
 
@@ -43,6 +49,8 @@ class Router extends RouterBase {
     RouteDef(Routes.loginView, page: LoginView),
     RouteDef(Routes.optionView, page: OptionView),
     RouteDef(Routes.storeView, page: StoreView),
+    RouteDef(Routes.joinView, page: JoinView),
+    RouteDef(Routes.orderView, page: OrderView),
   ];
   @override
   Map<Type, AutoRouteFactory> get pagesMap => _pagesMap;
@@ -80,6 +88,18 @@ class Router extends RouterBase {
     StoreView: (data) {
       return MaterialPageRoute<dynamic>(
         builder: (context) => StoreView(),
+        settings: data,
+      );
+    },
+    JoinView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => JoinView(),
+        settings: data,
+      );
+    },
+    OrderView: (data) {
+      return MaterialPageRoute<dynamic>(
+        builder: (context) => OrderView(),
         settings: data,
       );
     },

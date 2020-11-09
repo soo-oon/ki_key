@@ -15,20 +15,7 @@ class StoreView extends StatefulWidget {
 }
 
 class _StoreViewState extends State<StoreView> {
-  bool isMenu = false;
-  List<Widget> widget1 = [
-    InkWell(
-        onTap: () {
-          print("hi");
-        },
-        child: Text("전화")),
-    Text(
-      "주문하기",
-      style: TextStyle(color: red, fontWeight: FontWeight.bold),
-    ),
-    Text("공유"),
-    Text("음료,주류"),
-  ];
+  bool isMenu = true;
 
   List<Widget> widget2 = [
     InkWell(
@@ -170,7 +157,27 @@ class _StoreViewState extends State<StoreView> {
                   color: mainColor,
                   child: TabBar(
                     indicatorColor: mainColor,
-                    tabs: isMenu ? widget1 : widget2,
+                    tabs: !isMenu
+                        ? widget2
+                        : [
+                            InkWell(
+                                onTap: () {
+                                  print("hi");
+                                },
+                                child: Text("전화")),
+                            InkWell(
+                              onTap: () {
+                                model.navigateToOrder();
+                              },
+                              child: Text(
+                                "주문하기",
+                                style: TextStyle(
+                                    color: red, fontWeight: FontWeight.bold),
+                              ),
+                            ),
+                            Text("공유"),
+                            Text("음료,주류"),
+                          ],
                   ),
                 ),
               ),

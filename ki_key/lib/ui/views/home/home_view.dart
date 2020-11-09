@@ -1,11 +1,9 @@
-import 'package:floatingpanel/floatingpanel.dart';
 import 'package:flutter/material.dart';
 import 'package:ki_key/shared/sharedColors.dart';
 import 'package:ki_key/shared/widgets/input_widget.dart';
+import 'package:ki_key/shared/widgets/video_widget.dart';
 import 'package:ki_key/ui/views/home/home_viewmodel.dart';
 import 'package:stacked/stacked.dart';
-
-import '../../../helper.dart';
 
 class HomeView extends StatefulWidget {
   @override
@@ -15,7 +13,6 @@ class HomeView extends StatefulWidget {
 class _HomeViewState extends State<HomeView> {
   @override
   Widget build(BuildContext context) {
-    final Size size = MediaQuery.of(context).size;
     return ViewModelBuilder<HomeViewModel>.reactive(
         onModelReady: (model) => model.init(),
         builder: (context, model, child) => SafeArea(
@@ -34,7 +31,23 @@ class _HomeViewState extends State<HomeView> {
                               children: [
                                 FloatingActionButton(
                                   child: Icon(Icons.play_arrow),
-                                  onPressed: () {},
+                                  onPressed: () {
+                                    showDialog(
+                                      context: context,
+                                      builder: (context) => new AlertDialog(
+                                        title: new Text('동영상 광고'),
+                                        content: VideoApp(),
+                                        actions: <Widget>[
+                                          new FlatButton(
+                                            onPressed: () =>
+                                                Navigator.of(context)
+                                                    .pop(false),
+                                            child: new Text('닫기'),
+                                          ),
+                                        ],
+                                      ),
+                                    );
+                                  },
                                 ),
                               ],
                             )
@@ -42,20 +55,25 @@ class _HomeViewState extends State<HomeView> {
                               child: ListView.builder(
                                 itemCount: 100,
                                 itemBuilder: (BuildContext context, int index) {
-                                  return InkWell(
-                                    onTap: () => model.navigateToOption(),
-                                    child: ListTile(
-                                      title: Text(index.toString()),
+                                  if (index == 0)
+                                    return Text("추천");
+                                  else if (index == 3)
+                                    return Text("검색 결과");
+                                  else
+                                    return ListTile(
+                                      title: Text(
+                                          model.searchText.text + "집$index"),
                                       onTap: model.navigateToStore,
-                                    ),
-                                  );
+                                    );
                                 },
                               ),
                             ),
                       InputWidget(
-                        controller: model.searchText,
-                        hintText: "대리운전 택시 배달 검색",
-                      ),
+                          controller: model.searchText,
+                          hintText: "대리운전 택시 배달 검색",
+                          onChanged: (string) {
+                            setState(() {});
+                          }),
                     ],
                   ),
                   bottomNavigationBar: BottomAppBar(

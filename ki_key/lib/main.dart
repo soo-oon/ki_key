@@ -1,6 +1,5 @@
 import 'package:flutter/material.dart' hide Router;
 import 'package:ki_key/locator.dart';
-import 'package:ki_key/ui/views/home/home_view.dart';
 import 'package:ki_key/ui/views/start/start_view.dart';
 import 'package:stacked_services/stacked_services.dart';
 
