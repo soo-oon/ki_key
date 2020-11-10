@@ -24,7 +24,7 @@ Widget horizontalBar(double width, double height, Color color) => Container(
       color: color,
     );
 
-Widget verticalBar(double width, double height, Color color) => Container(
+Widget verticalBar(double width,double height, Color color) => Container(
       width: width,
       height: height,
       color: color,

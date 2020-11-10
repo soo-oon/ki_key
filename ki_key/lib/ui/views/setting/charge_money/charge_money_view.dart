@@ -3,9 +3,10 @@ import 'package:ki_key/shared/sharedColors.dart';
 import 'charge_money_viewModel.dart';
 import 'package:ki_key/ui/views/setting/charge_money/charge_money_viewModel.dart';
 
+
+final messageTextController = TextEditingController();
 class ChargeMoneyView extends StatelessWidget {
-  String messageText;
-  final messageTextController = TextEditingController();
+  String certificationMessage;
 
   @override
   Widget build(BuildContext context) {
@@ -26,19 +27,11 @@ class ChargeMoneyView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            Container(
-              child: CallBank(),
-            ),
-            Container(
-              child: ChargeMoney(),
-            ),
-            Container(
-              child: CertificationNumber(),
-            ),
+            CallBank(),
+            ChargeMoney(),
+            CertificationNumber(getCertificationMessage: certificationMessage,),
             SizedBox(height: 50.0,),
-            Container(
-              child: Image.asset('assets/images/logo.png'),
-            ),
+            Image.asset('assets/images/logo.png'),
           ],
         ),
       ),
@@ -108,8 +101,10 @@ class ChargeMoney extends StatelessWidget {
 }
 
 class CertificationNumber extends StatelessWidget {
-  String bankName;
+  String getCertificationMessage;
+  int textLength;
 
+  CertificationNumber({this.getCertificationMessage});
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -128,50 +123,55 @@ class CertificationNumber extends StatelessWidget {
             borderRadius: BorderRadius.circular(5.0),
           ),
           child: TextField(
-
+            maxLines: 1,
           ),
+          //Container( MessageTextFieldDecoration),
         ),
+        //MessageBubble(certification: getCertificationMessage),
       ],
     );
   }
 }
 
-// class MessageBubble extends StatelessWidget {
-//   String bank;
-//   int charge;
-//   int certification;
 //
-//   MessageBubble({this.bank, this.certification, this.charge});
-//
-//   @override
-//   Widget build(BuildContext context) {
-//     return Padding(
-//       padding: EdgeInsets.all(10.0),
-//       child: Column(
-//         crossAxisAlignment: CrossAxisAlignment.end,
-//         children: <Widget>[
-//           Material(
-//             borderRadius: BorderRadius.only(
-//               topLeft: Radius.circular(30.0),
-//               bottomLeft: Radius.circular(30.0),
-//               bottomRight: Radius.circular(30.0),
-//               topRight: Radius.circular(30.0),
-//             ),
-//             elevation: 5.0, //그림자
-//             color: Colors.lightBlueAccent,
-//             child: Padding(
-//               padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-//               child: Text(
-//                 bank,
-//                 style: TextStyle(
-//                   color: Colors.black54,
-//                   fontSize: 15.0,
-//                 ),
-//               ),
-//             ),
-//           ),
-//         ],
-//       ),
-//     );
-//   }
-// }
+
+
+class MessageBubble extends StatelessWidget {
+  //String bank;
+  //int charge;
+  String certification;
+
+  MessageBubble({this.certification});
+
+  @override
+  Widget build(BuildContext context) {
+    return Padding(
+      padding: EdgeInsets.all(10.0),
+      child: Column(
+        crossAxisAlignment: CrossAxisAlignment.end,
+        children: <Widget>[
+          Material(
+            borderRadius: BorderRadius.only(
+              topLeft: Radius.circular(30.0),
+              bottomLeft: Radius.circular(30.0),
+              bottomRight: Radius.circular(30.0),
+              topRight: Radius.circular(30.0),
+            ),
+            elevation: 5.0, //그림자
+            color: Colors.lightBlueAccent,
+            child: Padding(
+              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+              child: Text(
+                certification.toString(),
+                style: TextStyle(
+                  color: Colors.black,
+                  fontSize: 15.0,
+                ),
+              ),
+            ),
+          ),
+        ],
+      ),
+    );
+  }
+}

@@ -99,6 +99,9 @@ class OptionView extends StatelessWidget {
                       children: [
                         TextButtonWidget(
                           text: "QR",
+                          onTap: (){
+
+                          },
                         ),
                         verticalSpaceTiny,
                         TextButtonWidget(text: "광고 스크랩 리스트"),

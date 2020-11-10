@@ -139,8 +139,9 @@ class _StoreInfoViewState extends State<StoreInfoView> {
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
                 Padding(
-                  padding: const EdgeInsets.symmetric(horizontal: 5.0),
+                  padding: const EdgeInsets.all(5.0),
                   child: Container(
+                    height: 70,
                     child: Row(
                       children: [
                         Icon(Icons.account_box),
