@@ -1,9 +1,11 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:ki_key/ui/views/join/join_view.dart';
 import 'package:ki_key/ui/views/login/login_view.dart';
 import 'package:ki_key/ui/views/option/option_view.dart';
 import 'package:ki_key/ui/views/test/test_view.dart';
 
 import 'ui/views/home/home_view.dart';
+import 'ui/views/order/order_view.dart';
 import 'ui/views/start/start_view.dart';
 import 'ui/views/store/store_view.dart';
 
@@ -37,6 +39,10 @@ import 'package:ki_key/ui/views/setting/version_info/version_info_view.dart';
     MaterialRoute(page: ServiceCenter),
     MaterialRoute(page: SoundSetting),
     MaterialRoute(page: VersionInfo),
+
+    MaterialRoute(page: JoinView),
+    MaterialRoute(page: OrderView),
+
   ],
 )
 class $Router {}

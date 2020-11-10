@@ -9,4 +9,8 @@ class StoreViewModel extends BaseViewModel {
   Future navigateToHome() async {
     await _navigationService.navigateTo(Routes.homeView);
   }
+
+  Future navigateToOrder() async {
+    await _navigationService.navigateTo(Routes.orderView);
+  }
 }

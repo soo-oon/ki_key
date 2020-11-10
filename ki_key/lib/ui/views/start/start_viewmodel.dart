@@ -10,6 +10,10 @@ class StartupViewModel extends BaseViewModel {
     await _navigationService.navigateTo(Routes.homeView);
   }
 
+  Future navigateToLogin() async {
+    await _navigationService.navigateTo(Routes.loginView);
+  }
+
   int _counter = 0;
   int get counter => _counter;
   setCounter(int counter) => _counter += counter;
