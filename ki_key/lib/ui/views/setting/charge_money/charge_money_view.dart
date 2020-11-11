@@ -60,7 +60,9 @@ class CallBank extends StatelessWidget {
             borderRadius: BorderRadius.circular(5.0),
           ),
           child: TextField(
-
+            onTap: (){
+              _BankList;
+            },
           ),
 
           //Container( MessageTextFieldDecoration),
@@ -68,6 +70,26 @@ class CallBank extends StatelessWidget {
       ],
     );
   }
+}
+
+Widget _BankList(BuildContext context)
+{
+  return ListView(
+    children: ListTile.divideTiles(
+        context:context,
+    tiles:[
+      ListTile(
+        title: Text('대구은행'),
+      ),
+      ListTile(
+        title: Text('국민은행'),
+      ),
+      ListTile(
+        title: Text('신한은행'),
+      ),
+    ],
+    ).toList(),
+  );
 }
 
 class ChargeMoney extends StatelessWidget {
