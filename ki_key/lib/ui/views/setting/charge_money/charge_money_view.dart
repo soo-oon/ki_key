@@ -1,13 +1,13 @@
+import 'package:auto_size_text_field/auto_size_text_field.dart';
 import 'package:flutter/material.dart';
 import 'package:ki_key/shared/sharedColors.dart';
+import 'package:provider/provider.dart';
 import 'charge_money_viewModel.dart';
 import 'package:ki_key/ui/views/setting/charge_money/charge_money_viewModel.dart';
 
+//final messageTextController = TextEditingController();
 
-final messageTextController = TextEditingController();
 class ChargeMoneyView extends StatelessWidget {
-  String certificationMessage;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -27,10 +27,12 @@ class ChargeMoneyView extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.end,
           crossAxisAlignment: CrossAxisAlignment.start,
           children: <Widget>[
-            CallBank(),
+            Bank(),
             ChargeMoney(),
-            CertificationNumber(getCertificationMessage: certificationMessage,),
-            SizedBox(height: 50.0,),
+            CertificationNumber(),
+            SizedBox(
+              height: 50.0,
+            ),
             Image.asset('assets/images/logo.png'),
           ],
         ),
@@ -39,8 +41,13 @@ class ChargeMoneyView extends StatelessWidget {
   }
 }
 
-class CallBank extends StatelessWidget {
-  String bankName;
+class Bank extends StatefulWidget {
+  @override
+  _BankState createState() => _BankState();
+}
+
+class _BankState extends State<Bank> {
+  String bankName = '';
 
   @override
   Widget build(BuildContext context) {
@@ -52,48 +59,86 @@ class CallBank extends StatelessWidget {
             fontSize: 20.0,
           ),
         ),
-        Container(
-          width: 50.0,
-          height: 20.0,
-          decoration: BoxDecoration(
-            color: Colors.yellow,
-            borderRadius: BorderRadius.circular(5.0),
-          ),
-          child: TextField(
-            onTap: (){
-              _BankList;
-            },
-          ),
-
-          //Container( MessageTextFieldDecoration),
+        GestureDetector(
+          onTap: () async {
+            var result = await showModalBottomSheet(
+                context: context, builder: (context) => BankList());
+            bankName = result;
+            setState(() {});
+          },
+          child: ShowBank(BankName: bankName),
         ),
       ],
     );
   }
 }
 
-Widget _BankList(BuildContext context)
-{
-  return ListView(
-    children: ListTile.divideTiles(
-        context:context,
-    tiles:[
-      ListTile(
-        title: Text('대구은행'),
+class ShowBank extends StatelessWidget {
+  String BankName;
+
+  ShowBank({this.BankName});
+
+  @override
+  Widget build(BuildContext context) {
+    return Container(
+      width: 70.0,
+      height: 20.0,
+      child: Text(BankName),
+      decoration: BoxDecoration(
+        color: Colors.yellow,
+        borderRadius: BorderRadius.circular(5.0),
       ),
-      ListTile(
-        title: Text('국민은행'),
-      ),
-      ListTile(
-        title: Text('신한은행'),
-      ),
-    ],
-    ).toList(),
-  );
+    );
+  }
 }
 
-class ChargeMoney extends StatelessWidget {
-  String bankName;
+class BankList extends StatefulWidget {
+  //BankList({this.getBank});
+
+  @override
+  _BankListState createState() => _BankListState();
+}
+
+class _BankListState extends State<BankList> {
+  List bank = ['대구은행', '국민은행', '신한은행'];
+
+  @override
+  Widget build(BuildContext context) {
+    return ListView(
+      children: ListTile.divideTiles(
+        context: context,
+        tiles: [
+          ListTile(
+            title: Text(bank[0]),
+            onTap: () {
+              Navigator.pop(context, bank[0]);
+            },
+          ),
+          ListTile(
+            title: Text(bank[1]),
+            onTap: () {
+              Navigator.pop(context, bank[1]);
+            },
+          ),
+          ListTile(
+            title: Text(bank[2]),
+            onTap: () {
+              Navigator.pop(context, bank[2]);
+            },
+          ),
+        ],
+      ).toList(),
+    );
+  }
+}
+
+class ChargeMoney extends StatefulWidget {
+  @override
+  _ChargeMoneyState createState() => _ChargeMoneyState();
+}
+
+class _ChargeMoneyState extends State<ChargeMoney> {
+  TextEditingController _textEditingControllerOne;
 
   @override
   Widget build(BuildContext context) {
@@ -106,27 +151,43 @@ class ChargeMoney extends StatelessWidget {
           ),
         ),
         Container(
-          width: 50.0,
-          height: 20.0,
           decoration: BoxDecoration(
             color: Colors.yellow,
-            borderRadius: BorderRadius.circular(5.0),
           ),
-          child: TextField(
-
+          child: AutoSizeTextField(
+            minWidth: 100,
+            controller: _textEditingControllerOne,
+            decoration: InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.only(top: 10.0),
+              border:
+                  OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+            ),
+            fullwidth: false,
+            style: TextStyle(fontSize: 10),
           ),
-          //Container( MessageTextFieldDecoration),
         ),
       ],
     );
   }
+
+  @override
+  void initState() {
+    //?
+    super.initState();
+    _textEditingControllerOne = TextEditingController();
+  }
 }
 
-class CertificationNumber extends StatelessWidget {
-  String getCertificationMessage;
-  int textLength;
+class CertificationNumber extends StatefulWidget {
+  @override
+  _CertificationNumberState createState() => _CertificationNumberState();
+}
 
-  CertificationNumber({this.getCertificationMessage});
+class _CertificationNumberState extends State<CertificationNumber> {
+  TextEditingController _textEditingControllerOne;
+  double setWidth = 100.0;
+  final myController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Row(
@@ -138,62 +199,30 @@ class CertificationNumber extends StatelessWidget {
           ),
         ),
         Container(
-          width: 50.0,
-          height: 20.0,
           decoration: BoxDecoration(
             color: Colors.yellow,
-            borderRadius: BorderRadius.circular(5.0),
           ),
-          child: TextField(
-            maxLines: 1,
+          child: AutoSizeTextField(
+            minWidth: 100,
+            controller: _textEditingControllerOne,
+            decoration: InputDecoration(
+              isDense: true,
+              contentPadding: EdgeInsets.only(top: 10.0),
+              border:
+              OutlineInputBorder(borderRadius: BorderRadius.circular(5.0)),
+            ),
+            fullwidth: false,
+            style: TextStyle(fontSize: 10),
           ),
-          //Container( MessageTextFieldDecoration),
         ),
-        //MessageBubble(certification: getCertificationMessage),
       ],
     );
   }
-}
-
-//
-
-
-class MessageBubble extends StatelessWidget {
-  //String bank;
-  //int charge;
-  String certification;
-
-  MessageBubble({this.certification});
 
   @override
-  Widget build(BuildContext context) {
-    return Padding(
-      padding: EdgeInsets.all(10.0),
-      child: Column(
-        crossAxisAlignment: CrossAxisAlignment.end,
-        children: <Widget>[
-          Material(
-            borderRadius: BorderRadius.only(
-              topLeft: Radius.circular(30.0),
-              bottomLeft: Radius.circular(30.0),
-              bottomRight: Radius.circular(30.0),
-              topRight: Radius.circular(30.0),
-            ),
-            elevation: 5.0, //그림자
-            color: Colors.lightBlueAccent,
-            child: Padding(
-              padding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
-              child: Text(
-                certification.toString(),
-                style: TextStyle(
-                  color: Colors.black,
-                  fontSize: 15.0,
-                ),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
+  void initState() {
+    super.initState();
+
+    _textEditingControllerOne = TextEditingController();
   }
 }
