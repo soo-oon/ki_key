@@ -99,32 +99,59 @@ class OptionView extends StatelessWidget {
                       children: [
                         TextButtonWidget(
                           text: "QR",
-                          onTap: (){
-
+                          onTap: () {
+                            model.navigateToQr();
                           },
                         ),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "광고 스크랩 리스트"),
+                        TextButtonWidget(
+                            text: "광고 스크랩 리스트",
+                            onTap: () {
+                              model.navigateToAd();
+                            }),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "머니충전"),
+                        TextButtonWidget(
+                            text: "머니충전",
+                            onTap: () => model.navigateToChargeMoney()),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "머니 사용 내역"),
+                        TextButtonWidget(
+                          text: "머니 사용 내역",
+                          onTap: () => model.navigateToMoneyHistory(),
+                        ),
                         verticalSpaceSmall,
                         horizontalBar(size.width, 1, Colors.black),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "화면"),
+                        TextButtonWidget(
+                          text: "화면",
+                          onTap: () => model.navigateToSettingScreen(),
+                        ),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "소리"),
+                        TextButtonWidget(
+                          text: "소리",
+                          onTap: () => model.navigateToSettingSound(),
+                        ),
                         verticalSpaceSmall,
                         horizontalBar(size.width, 1, Colors.black),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "공지사항"),
+                        TextButtonWidget(
+                          text: "공지사항",
+                          onTap: () => model.navigateToNotice(),
+                        ),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "정보변경"),
+                        TextButtonWidget(
+                          text: "정보변경",
+                          onTap: () => model.navigateToChangeInfo(),
+                        ),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "버전정보"),
+                        TextButtonWidget(
+                          text: "버전정보",
+                          onTap: () => model.navigateToVersionInfo(),
+                        ),
                         verticalSpaceTiny,
-                        TextButtonWidget(text: "고객센터"),
+                        TextButtonWidget(
+                          text: "고객센터",
+                          onTap: () => model.navigateToService(),
+                        ),
                         verticalSpaceTiny,
                       ],
                     ),

@@ -16,6 +16,7 @@ class _VideoAppState extends State<VideoApp> {
     _controller = VideoPlayerController.network(
         "https://flutter.github.io/assets-for-api-docs/assets/videos/butterfly.mp4");
     _initializeVideoPlayerFuture = _controller.initialize();
+    _controller.play();
     super.initState();
   }
 
