@@ -1,6 +1,12 @@
 import 'package:auto_route/auto_route_annotations.dart';
+import 'package:ki_key/ui/views/ad/add_ad_view.dart';
+import 'package:ki_key/ui/views/ad/send_ad_view.dart';
 import 'package:ki_key/ui/views/join/join_view.dart';
 import 'package:ki_key/ui/views/login/login_view.dart';
+import 'package:ki_key/ui/views/option/check_order/check_order_view.dart';
+import 'package:ki_key/ui/views/option/check_order/result_order_view.dart';
+import 'package:ki_key/ui/views/option/function/function_view.dart';
+import 'package:ki_key/ui/views/option/manage/manage_view.dart';
 import 'package:ki_key/ui/views/option/option_view.dart';
 import 'package:ki_key/ui/views/test/test_view.dart';
 
@@ -28,7 +34,7 @@ import 'package:ki_key/ui/views/setting/version_info/version_info_view.dart';
     MaterialRoute(page: LoginView),
     MaterialRoute(page: OptionView),
     MaterialRoute(page: StoreView),
-
+    MaterialRoute(page: SendView),
     MaterialRoute(page: AdScriptView),
     MaterialRoute(page: ChangeInfo),
     MaterialRoute(page: ChargeMoneyView),
@@ -39,10 +45,13 @@ import 'package:ki_key/ui/views/setting/version_info/version_info_view.dart';
     MaterialRoute(page: ServiceCenter),
     MaterialRoute(page: SoundSetting),
     MaterialRoute(page: VersionInfo),
-
+    MaterialRoute(page: AddAdView),
     MaterialRoute(page: JoinView),
     MaterialRoute(page: OrderView),
-
+    MaterialRoute(page: FunctionalView),
+    MaterialRoute(page: ManagementView),
+    MaterialRoute(page: CheckView),
+    MaterialRoute(page: ResultOrderView),
   ],
 )
 class $Router {}

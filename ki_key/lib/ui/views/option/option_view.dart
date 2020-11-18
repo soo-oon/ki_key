@@ -30,7 +30,10 @@ class OptionView extends StatelessWidget {
                           CustomButton(
                             color: mainColor.withOpacity(0.3),
                             title: "광고하기",
-                            onTap: () {},
+                            onTap: () {
+                              model.navigateToAdd();
+                              model.increaseStore();
+                            },
                           ),
                           verticalSpaceSmall,
                           horizontalBar(size.width, 1, Colors.black),
@@ -67,13 +70,21 @@ class OptionView extends StatelessWidget {
                                       horizontal: 15.0),
                                   child: Column(
                                     children: [
-                                      TextButtonWidget(text: "광고관리"),
+                                      TextButtonWidget(
+                                          text: "광고관리",
+                                          onTap: () =>
+                                              model.navigateToManagement()),
                                       verticalSpaceTiny,
                                       TextButtonWidget(text: "매출정산"),
                                       verticalSpaceTiny,
-                                      TextButtonWidget(text: "주문접수"),
+                                      TextButtonWidget(
+                                          text: "주문접수",
+                                          onTap: () => model.navigateToCheck()),
                                       verticalSpaceTiny,
-                                      TextButtonWidget(text: "기능설정"),
+                                      TextButtonWidget(
+                                          text: "기능설정",
+                                          onTap: () =>
+                                              model.navigateToFunction()),
                                       verticalSpaceTiny,
                                       TextButtonWidget(text: "공지사항"),
                                       verticalSpaceTiny,
@@ -87,7 +98,10 @@ class OptionView extends StatelessWidget {
                           CustomButton(
                             color: mainColor.withOpacity(0.3),
                             title: "광고 추가",
-                            onTap: () {},
+                            onTap: () {
+                              model.navigateToAdd();
+                              model.increaseStore();
+                            },
                           ),
                         ],
                       ),

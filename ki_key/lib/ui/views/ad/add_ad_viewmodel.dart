@@ -4,17 +4,17 @@ import 'package:stacked_services/stacked_services.dart';
 import '../../../locator.dart';
 import '../../../router.gr.dart';
 
-class StoreViewModel extends BaseViewModel {
+class AddAdViewModel extends BaseViewModel {
   final NavigationService _navigationService = locator<NavigationService>();
-  Future navigateToHome() async {
-    await _navigationService.navigateTo(Routes.homeView);
+  Future navigateToOption() async {
+    await _navigationService.navigateTo(Routes.optionView);
   }
 
   Future navigateToOrder() async {
     await _navigationService.navigateTo(Routes.orderView);
   }
 
-  Future navigateToResult() async {
-    await _navigationService.navigateTo(Routes.resultOrderView);
+  Future navigateToSend() async {
+    await _navigationService.navigateTo(Routes.sendView);
   }
 }

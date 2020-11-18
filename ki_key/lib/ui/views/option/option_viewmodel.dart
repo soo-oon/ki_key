@@ -13,6 +13,22 @@ class OptionViewModel extends BaseViewModel {
     await _navigationService.navigateTo(Routes.qRView);
   }
 
+  Future navigateToFunction() async {
+    await _navigationService.navigateTo(Routes.functionalView);
+  }
+
+  Future navigateToManagement() async {
+    await _navigationService.navigateTo(Routes.managementView);
+  }
+
+  Future navigateToCheck() async {
+    await _navigationService.navigateTo(Routes.checkView);
+  }
+
+  Future navigateToAdd() async {
+    await _navigationService.navigateTo(Routes.addAdView);
+  }
+
   Future navigateToAd() async {
     await _navigationService.navigateTo(Routes.adScriptView);
   }
@@ -50,7 +66,7 @@ class OptionViewModel extends BaseViewModel {
   }
 
   void init() {
-    _store = 0;
+    _store = 1;
   }
 
   void increaseStore() {
